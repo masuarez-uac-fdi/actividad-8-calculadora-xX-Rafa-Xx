@@ -1,1 +1,134 @@
-<!--Implementación de la interfaz de usuario-->
+
+</<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Calculadora</title>
+  </head>
+  <body>
+<h1>Calculadora</h1>
+---Primer numero: <input type = "text" id = "n1"></br>
+Segundo numero: <input type = "text" id = "n2"></br>
+
+<button onclick= "ejecutarAJAX()">Sumar </button>
+<button onclick= "ejecutarAJAX2()">Restar </button>
+<button onclick= "ejecutarAJAX3()">Producto </button>
+<button onclick= "ejecutarAJAX4()">División </button>
+
+<div id ="info"> - </div>
+
+<script type="text/javascript">
+  var resultado = document.getElementById("info");
+
+function ejecutarAJAX(){
+  var xmlhttp;
+
+ if(window.XMLHttpRequest){
+  xmlhttp = new XMLHttpRequest();
+ }else{
+  xmlhttp = new ActiveXObject("Microsft.XMLHTTP");
+ }
+
+ var a = document.getElementById("n1").value;
+ var b = document.getElementById("n2").value;
+ var cadena = "num1="+ a + "&num2="+ b;
+
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+      resultado.innerHTML = xmlhttp.responseText;
+
+    }
+  }
+
+ xmlhttp.open("GET", "suma.php?" + cadena, true);
+
+ xmlhttp.send();
+
+}
+//segundo metodo
+function ejecutarAJAX2(){
+  var xmlhttp;
+
+
+ if(window.XMLHttpRequest){
+  xmlhttp = new XMLHttpRequest();
+
+ }else{
+  xmlhttp = new ActiveXObject("Microsft.XMLHTTP");
+ }
+
+ var a = document.getElementById("n1").value;
+ var b = document.getElementById("n2").value;
+ var cadena = "num1="+ a + "&num2="+ b;
+
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+      resultado.innerHTML = xmlhttp.responseText;
+    }
+  }
+
+ xmlhttp.open("GET", "resta.php?" + cadena, true);
+
+ xmlhttp.send();
+
+}
+//tercer metodo
+function ejecutarAJAX3(){
+  var xmlhttp;
+
+
+ if(window.XMLHttpRequest){
+  xmlhttp = new XMLHttpRequest();
+
+ }else{
+  xmlhttp = new ActiveXObject("Microsft.XMLHTTP");
+ }
+
+ var a = document.getElementById("n1").value;
+ var b = document.getElementById("n2").value;
+ var cadena = "num1="+ a + "&num2="+ b;
+
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+      resultado.innerHTML = xmlhttp.responseText;
+    }
+  }
+
+ xmlhttp.open("GET", "producto.php?" + cadena, true);
+
+ xmlhttp.send();
+
+}
+//cuarto hokage sama
+function ejecutarAJAX4(){
+  var xmlhttp;
+
+
+ if(window.XMLHttpRequest){
+  xmlhttp = new XMLHttpRequest();
+
+ }else{
+  xmlhttp = new ActiveXObject("Microsft.XMLHTTP");
+ }
+
+ var a = document.getElementById("n1").value;
+ var b = document.getElementById("n2").value;
+ var cadena = "num1="+ a + "&num2="+ b;
+
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+      resultado.innerHTML = xmlhttp.responseText;
+    }
+  }
+
+ xmlhttp.open("GET", "division.php?" + cadena, true);
+
+ xmlhttp.send();
+
+}
+
+</script>
+</body>
+</html>
